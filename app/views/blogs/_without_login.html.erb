@@ -1,0 +1,9 @@
+<% @blogs.each do |blog| %>
+        <tr>
+          <td><%= blog.id %></td>
+          <td><%= blog.title %></td>
+          <td><%= blog.description %></td>
+          
+          <td><%= link_to 'Show', blog %></td>
+  </tr>
+<% end %>

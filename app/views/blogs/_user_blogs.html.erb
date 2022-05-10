@@ -1,0 +1,39 @@
+<% @blogs.each do |blog| %>
+  <tr>
+    <td><%= blog.id %></td>
+    <td><%= blog.title %></td>
+    <td><%= blog.description %></td>
+    
+    <td><%= link_to 'Show', blog %></td>
+    
+    
+      <% if (current_user.has_role? :admin) %>
+      </td>
+        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+     <% if  (current_user.id == blog.user_id) %>
+     <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+     <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?'
+     	} %></td>
+
+     	<td><%= button_to 'APPLY',   aplly_user_blog_path(blog.id), method: :aplly_user   %></td>
+
+
+
+
+     <%end%>
+ 
+ 
+      <% if blog.apply == true  %>
+      <% if current_user.has_role? :admin %>
+
+        <td><%= button_to 'Accept/Reject',   accept_reject_blog_path(blog.id), method: :accept_user   %></td>
+
+
+        
+      <% end %> 
+      <% end %> 
+  
+       </tr>
+<% end %>
