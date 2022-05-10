@@ -35,15 +35,6 @@ class BlogsController < ApplicationController
     end
   end
 
-  
-  # def update
-  #   @blog = Blog.find(params[:id])
-  #   if @blog.update(blog_params)
-  #     redirect_to @blog, notice: 'Blog was successfully updated.'
-  #   else
-  #     render :edit
-  #   end
-  # end
 
   
   def destroy
@@ -72,10 +63,7 @@ class BlogsController < ApplicationController
                   @blog.update(accept_reject:false)
               end    
 
-                
-              #@blog.update(blog_params).permit(:accept_reject)
-              #@blog.update(blog_params)
-              #@blog = update(accept_reject:true)
+              
               @blog.save
               redirect_to root_path
                
