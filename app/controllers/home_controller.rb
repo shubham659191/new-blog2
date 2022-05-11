@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   	@blogs = Blog.all
   end
   def home
+  	@blogs = Blog.all
 
   	
   end
